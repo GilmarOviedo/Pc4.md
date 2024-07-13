@@ -1,4 +1,4 @@
-import asyncio  # Importa el módulo asyncio para la programación asíncrona.
+import asyncio  # Importa el módulo asyncio 
 import logging  # Importa el módulo logging para el registro de eventos.
 from collections import deque  # Importa deque para manejar la cola de eventos.
 from concurrent.futures import ThreadPoolExecutor  # Importa ThreadPoolExecutor para ejecutar tareas en hilos.
@@ -11,14 +11,14 @@ logger = logging.getLogger(__name__)
 # Clase que representa un evento.
 class Event:
     def __init__(self, event_type, data, priority=1):
-        self.event_type = event_type  # Tipo de evento (por ejemplo, "execute").
-        self.data = data  # Datos asociados con el evento.
-        self.priority = priority  # Prioridad del evento (valor por defecto es 1).
-
+        self.event_type = event_type  # Tipo de evento
+        self.data = data  # Datos asociados con el evento
+        self.priority = priority  # Prioridad del evento
+        
 # Clase que simula un cuaderno (notebook) con celdas para ejecutar.
 class Notebook:
     def __init__(self):
-        self.cells = []  # Lista de celdas (vacía en este caso).
+        self.cells = []  # Lista de celdas 
         self.state = {}  # Diccionario para almacenar el estado de cada celda.
 
     # Método asíncrono para ejecutar una celda.
@@ -55,7 +55,7 @@ class EventSystem:
 
     # Bucle asíncrono que procesa los eventos en la cola.
     async def event_loop(self):
-        while True:  # Bucle infinito.
+        while True: 
             if self.event_queue:  # Si hay eventos en la cola.
                 with self.lock:  # Bloquea el acceso a la cola para operaciones seguras en hilos.
                     event = self.event_queue.popleft()  # Desencola el primer evento.
